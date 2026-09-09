@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 public class NonePowers extends JavaPlugin implements Listener, CommandExecutor {
 
@@ -132,7 +131,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName(
-                color + ChatColor.BOLD +
+                color.toString() + ChatColor.BOLD +
                         getPowerName(number)
         );
 
@@ -330,9 +329,9 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
 
     private boolean safe(Location location) {
 
-        return location.getBlock().isPassable()
-                && location.clone().add(0, 1, 0)
-                .getBlock().isPassable();
+        return !location.getBlock().getType().isSolid()
+                && !location.clone().add(0, 1, 0)
+                .getBlock().getType().isSolid();
     }
 
     private Location findSafe(
@@ -500,7 +499,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
             }
 
             player.sendMessage(
-                    ChatColor.DARK_RED +
+                    ChatColor.DARK_RED.toString() +
                             ChatColor.BOLD +
                             "ULTIMATE TITAN STRIKE!"
             );
