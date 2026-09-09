@@ -277,7 +277,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
 
         world.playSound(
                 location,
-                Sound.ENDERMAN_TELEPORT,
+                Sound.ORB_PICKUP,
                 1.0f,
                 1.0f
         );
@@ -324,7 +324,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
 
         player.getWorld().playSound(
                 location,
-                Sound.ENTITY_GENERIC_EXPLODE,
+                Sound.EXPLODE,
                 1.0f,
                 0.8f
         );
