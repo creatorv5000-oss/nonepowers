@@ -1,3 +1,4 @@
+```java
 package me.none.powers;
 
 import org.bukkit.Bukkit;
@@ -39,7 +40,11 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, this);
-        getCommand("none").setExecutor(this);
+
+        if (getCommand("nonepowers") != null) {
+            getCommand("nonepowers").setExecutor(this);
+        }
+
         getLogger().info("NonePowers enabled - 300 powers loaded!");
     }
 
@@ -261,10 +266,6 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
         }
     }
 
-    /*
-     * 100 TELEPORT POWERS
-     */
-
     private void teleportPower(Player player, int id) {
 
         Location old = player.getLocation().clone();
@@ -367,10 +368,6 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
                 0.2
         );
     }
-
-    /*
-     * 100 ATTACK POWERS
-     */
 
     private void attackPower(Player player, int id) {
 
@@ -505,10 +502,6 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
             );
         }
     }
-
-    /*
-     * 100 CUSTOM ITEMS
-     */
 
     private void artifactPower(Player player, int id) {
 
@@ -653,10 +646,6 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
         }
     }
 
-    /*
-     * COOLDOWN
-     */
-
     private String key(Player player, int power) {
         return player.getUniqueId().toString() + ":" + power;
     }
@@ -699,3 +688,30 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
         );
     }
 }
+```
+
+And make sure your **`plugin.yml`** has this:
+
+```yaml
+name: NonePowers
+version: 1.0
+main: me.none.powers.NonePowers
+api-version: 1.12
+author: None
+description: None's 300 Powers plugin
+
+commands:
+  nonepowers:
+    description: Open None's 300 Powers menu
+    usage: /nonepowers
+```
+
+Then rebuild the JAR and upload the new one.
+
+**Test command:**
+
+```text
+/nonepowers
+```
+
+And yes, the `none` username restriction is still there.
