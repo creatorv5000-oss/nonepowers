@@ -24,6 +24,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -100,7 +101,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
                         ChatColor.LIGHT_PURPLE + "Power #" + power
                 );
 
-                meta.setLore(java.util.Arrays.asList(
+                meta.setLore(Arrays.asList(
                         ChatColor.GRAY + getPowerName(power),
                         "",
                         ChatColor.YELLOW + "Click to activate!"
@@ -276,7 +277,7 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
 
         world.playSound(
                 location,
-                Sound.ENTITY_ENDERMAN_TELEPORT,
+                Sound.ENDERMAN_TELEPORT,
                 1.0f,
                 1.0f
         );
@@ -384,7 +385,6 @@ public class NonePowers extends JavaPlugin implements Listener, CommandExecutor 
         } else {
 
             player.setHealth(player.getMaxHealth());
-
             player.setFoodLevel(20);
         }
 
