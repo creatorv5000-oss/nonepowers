@@ -1,11 +1,11 @@
 name: NonePowers
-version: 1.0.0
+version: 1.0
 main: me.none.powers.NonePowers
 api-version: 1.12
-author: none
-description: 300 powers for none
+author: None
+description: None's 300 Powers plugin
 
 commands:
-  none:
-    description: Opens None's power menu
-    usage: /none
+  nonepowers:
+    description: Open None's 300 Powers menu
+    usage: /nonepowers
